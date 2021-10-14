@@ -1,0 +1,23 @@
+# action.yml
+name: 'MongoSH Command Docker Action'
+description: 'Execute JS commands using MongoSH against a MongoDB'
+inputs:
+    connectionString: # id of input
+        description: 'Your mongodb connection string. This will be passed to connect() in mongosh script file and return the db object for your JS snippet.'
+        required: true
+        default: 'localhost:27017'
+    snippet:
+        description: 'Your mongodb commands as a JavaScript snippet. You already get a db-object from us to use in your snippet.'
+        required: true
+        default: ''
+outputs:
+    input-command: # id of output
+        description: 'The whole JS file that is run using mongosh.'
+    output:
+        description: 'The output of the whole JS script (add output using "console.log()" in your command).'
+runs:
+    using: 'docker'
+    image: 'Dockerfile'
+    args:
+        - ${{ inputs.connectionString }}
+        - ${{ inputs.snippet }}
