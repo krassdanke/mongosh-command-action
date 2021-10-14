@@ -2,7 +2,7 @@
 MONGO_URL=$1
 MONGO_CMD=$2
 
-echo "db = connect(process.env.MONGO_URL);" > ./mongo_cmd.js
+echo "db = connect($MONGO_URL);" > ./mongo_cmd.js
 echo "$MONGO_CMD" >> ./mongo_cmd.js
 
 debugInput=$(cat ./mongo_cmd.js)
