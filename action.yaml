@@ -1,6 +1,10 @@
 # action.yml
 name: 'MongoSH Command Docker Action'
+author: '@krassdanke'
 description: 'Execute JS commands using MongoSH against a MongoDB'
+branding:
+    icon: 'chevron-right'
+    color: 'gray-dark'
 inputs:
     connectionString: # id of input
         description: 'Your mongodb connection string. This will be passed to connect() in mongosh script file and return the db object for your JS snippet.'
