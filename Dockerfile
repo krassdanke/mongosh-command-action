@@ -7,8 +7,8 @@ RUN echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mon
 RUN apt-get update
 RUN apt-get install -y mongodb-mongosh
 
-COPY ./entrypoint.sh ./entrypoint.sh
-RUN chmod +x ./entrypoint.sh
-RUN chmod 777 ./entrypoint.sh
+RUN mkdir /entrypoint
+COPY ./entrypoint.sh /entrypoint/entrypoint.sh
+RUN chmod +x /entrypoint/entrypoint.sh
 
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["/entrypoint/entrypoint.sh"]
