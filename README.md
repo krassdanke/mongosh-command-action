@@ -7,7 +7,7 @@ You can use it to seed a MongoDB database in your GitHub Actions or to create Mo
 
 ## `connectionString`
 
-**Required** Your mongodb connection string. This will be passed to connect() in mongosh script file and return the db object for your JS snippet.
+**Required** Your mongodb connection string. This will be passed to `connect()` in mongosh script file and return the db object for your JS snippet.
 
 ## `snippet`
 
@@ -21,11 +21,12 @@ The whole JS file that is run using mongosh.
 
 ## `output`
 
-The output of the whole JS script (add output using "console.log()" in your command).
+The output of the whole JS script (add output using `console.log()` in your command).
 
 ## Example usage
-
+````
 uses: krassdanke/mongosh-command-action@v1
 with:
   connectionString: 'mongodb://myuser:mypass@my.mongo.example.com/mydatabase&ssl=false'
   snippet: "let res = db.createUser({name: 'foo', pwd: 'bar', roles: ["readWrite"]}); console.log(res); res = db.getUsers(); console.log(res);"
+````
