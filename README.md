@@ -38,7 +38,7 @@ The output of the whole JS script (add output using `console.log()` in your comm
 Basic usage:
 
 ```
-uses: krassdanke/mongosh-command-action@v1
+uses: krassdanke/mongosh-command-action@v1.1
 with:
   connectionString: 'mongodb://my-ci-user:my-ci-pass@my.mongo.example.com/mydatabase&ssl=false'
   snippet: "let res = db.createUser({name: 'foo', pwd: 'bar', roles: ["readWrite"]}); console.log(res); res = db.getUsers(); console.log(res);"
