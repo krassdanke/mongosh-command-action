@@ -56,7 +56,7 @@ Create a user for a branch (works multiple times, changing the password):
   run: |
     echo "::set-output name=password::SuperSecretPassword123!"
 - name: Execute mongosh commands
-  uses: krassdanke/mongosh-command-action@v1
+  uses: krassdanke/mongosh-command-action@v1.1
   with:
     connectionString: 'mongodb://my-ci-user:my-ci-pass@my.mongo.example.com/mydatabase${{ steps.vars.outputs.branch }}&ssl=false'
     snippet: "db.createUser({name: 'ci-user-${{ steps.vars.outputs.branch }}', pwd: 'bar', roles: ["readWrite", "dbAdmin"]}); db.changeUserPassword('ci-user-${{ steps.vars.outputs.branch }}', '${{ steps.password.outputs.password }}')";"
